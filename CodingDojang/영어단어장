@@ -1,0 +1,85 @@
+package CodingDojang;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+/* 영어 단어장 조건 1. 추가, 삭제 가능하게 하기 2. 문제 풀기 기능 만들기 */
+/*
+* --------------------------
+1. 단어 추가
+2. 단어 삭제
+3. 문제 풀기
+--------------------------
+메뉴 선택 : (번호 입력)
+*
+* */
+public class Engvoca {
+    static Scanner input = new Scanner(System.in);
+    static ArrayList<String> list = new ArrayList<String>();
+
+    public static void showMenu() {
+        System.out.println("--------------------------");
+        System.out.println("1. 단어 추가");
+        System.out.println("2. 단어 삭제");
+        System.out.println("3. 문제 풀기");
+        System.out.println("--------------------------");
+        System.out.println("메뉴 선택 : (번호 입력)");
+        System.out.print("--> ");
+    }
+
+    public static void add(){
+
+        System.out.println("추가할 영어단어를 입력해 주세요.");
+        input.nextLine();
+        String e = input.nextLine();
+        System.out.println("한글 뜻을 입력해 주세요.");
+        String kor = input.nextLine();
+
+
+        list.add(e + " / " + kor);
+        System.out.println(list);
+
+    }
+
+    public static void remove(){
+        System.out.println("삭제할 영어단어를 입력해 주세요.");
+        input.nextLine();
+        String e =input.nextLine();
+
+        for(int i = 0; i <list.size(); i++){
+            if(e.equals(list.get(i))){
+                list.remove(String.valueOf(i));
+                System.out.println("단어를 삭제하였습니다.");
+            }
+            else {
+                System.out.println("삭제할 단어가 존재하지 않습니다.");
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        int choice;
+
+        while (true){
+            showMenu();
+            choice = input.nextInt();
+            switch (choice){
+                case 1:
+                    add();
+                    break;
+                case 2:
+                    remove();
+                    System.out.println("단어를 삭제합니다.");
+                    break;
+            }
+
+
+
+
+        }
+    }
+
+
+
+}
+
